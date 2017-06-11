@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry", "Henry\Henry.csproj", "{BDE8CB52-EA7B-419C-BEFD-27D77BCAF453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry.Core", "Henry.Core\Henry.Core.csproj", "{737F5825-CAA6-4606-BB45-ED29A64BFBA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDE8CB52-EA7B-419C-BEFD-27D77BCAF453}.Debug|x86.ActiveCfg = Debug|x86
+		{BDE8CB52-EA7B-419C-BEFD-27D77BCAF453}.Debug|x86.Build.0 = Debug|x86
+		{BDE8CB52-EA7B-419C-BEFD-27D77BCAF453}.Release|x86.ActiveCfg = Release|x86
+		{BDE8CB52-EA7B-419C-BEFD-27D77BCAF453}.Release|x86.Build.0 = Release|x86
+		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Debug|x86.Build.0 = Debug|Any CPU
+		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Release|x86.ActiveCfg = Release|Any CPU
+		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
