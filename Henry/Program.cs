@@ -1,5 +1,6 @@
 ﻿using System;
 using Henry.Core;
+using Henry.Core.Wit;
 
 namespace Henry
 {
@@ -7,8 +8,22 @@ namespace Henry
     {
         public static void Main(string[] args)
         {
-            var test = new WitTest();
-            test.TestMessage("hello");
+            bool exited = false;
+
+            while (!exited)
+            {
+                Console.WriteLine("Your message:");
+
+                var input = Console.ReadLine();
+
+                if (input == "exit") return;
+
+                Console.WriteLine("I said: \'{0}\'\n", input);
+
+                var result = WitClient.Message(input);
+
+                Console.WriteLine(result);
+            }
         }
     }
 }

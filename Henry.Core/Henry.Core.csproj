@@ -35,7 +35,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wit\Constants.cs" />
     <Compile Include="Wit\WitClient.cs" />
