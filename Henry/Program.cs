@@ -1,6 +1,6 @@
 ﻿using System;
 using Henry.Core;
-using Henry.Core.Wit;
+using Henry.Core.Services;
 
 namespace Henry
 {
@@ -8,22 +8,36 @@ namespace Henry
     {
         public static void Main(string[] args)
         {
-            bool exited = false;
+            var app = new App();
+            app.Init();
+        }
+    }
 
-            while (!exited)
-            {
-                Console.WriteLine("Your message:");
+    public class App
+    {
+        WitService _witService;
 
-                var input = Console.ReadLine();
+        public void Init()
+        {
+			bool exited = false;
 
-                if (input == "exit") return;
+			_witService = new WitService();
 
-                Console.WriteLine("I said: \'{0}\'\n", input);
+			while (!exited)
+			{
 
-                var result = WitClient.Message(input);
+				Console.WriteLine("Your message:");
 
-                Console.WriteLine(result);
-            }
+				var input = Console.ReadLine();
+
+				if (input == "exit") return;
+
+				Console.WriteLine("I said: \'{0}\'", input);
+
+                var result = _witService.Message(input);
+
+				Console.WriteLine(result);
+			}
         }
     }
 }
