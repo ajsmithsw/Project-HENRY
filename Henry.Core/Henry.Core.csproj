@@ -45,6 +45,7 @@
     <Compile Include="Services\IWitService.cs" />
     <Compile Include="Services\WitService.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="App.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
