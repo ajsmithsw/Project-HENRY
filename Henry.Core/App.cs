@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Henry.Core.Services;
 
 namespace Henry.Core
@@ -15,18 +16,17 @@ namespace Henry.Core
 
 			while (!exited)
 			{
+				Console.Write("\nYou   > ");
 
-				Console.WriteLine("Your message:");
+                var input = Console.ReadLine();
 
-				var input = Console.ReadLine();
+                Debug.WriteLine(input);
 
 				if (input == "exit") return;
 
-				Console.WriteLine("I said: \'{0}\'", input);
+				var result = _witService.Converse(input);
 
-				var result = _witService.Message(input);
-
-				Console.WriteLine(result);
+                Console.WriteLine("\nHENRY > {0}", result);
 			}
 		}
 	}
