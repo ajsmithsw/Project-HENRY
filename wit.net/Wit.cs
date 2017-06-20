@@ -147,7 +147,7 @@ namespace WitAi
                     return;
                 }
 
-                var response = this.RunActions(session, message, null, maxSteps);
+                var response = this.RunActions(session, message, context, maxSteps);
                 context = response.Context;
                 response.Messages.ForEach(msg => Console.WriteLine("{0} HENRY > {1}\n", session, msg));
             }
