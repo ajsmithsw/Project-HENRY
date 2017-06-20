@@ -33,21 +33,17 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.Core" />
-    <Reference Include="Wit.NET">
-      <HintPath>..\packages\MatheusFroes.Wit.NET.1.0.3\lib\net452\Wit.NET.dll</HintPath>
-    </Reference>
     <Reference Include="Syn.Speech">
       <HintPath>..\packages\Syn.Speech.1.0.3\lib\net45\Syn.Speech.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IWitService.cs" />
     <Compile Include="Services\WitService.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Utils\SessionId.cs" />
   </ItemGroup>
@@ -57,6 +53,12 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wit.net\Wit.NET.csproj">
+      <Project>{B64A69F6-AFC0-46AE-A3AC-2F265C1172E0}</Project>
+      <Name>Wit.NET</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

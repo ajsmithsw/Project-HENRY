@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry", "Henry\Henry.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henry.Core", "Henry.Core\Henry.Core.csproj", "{737F5825-CAA6-4606-BB45-ED29A64BFBA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wit.NET", "wit.net\Wit.NET.csproj", "{B64A69F6-AFC0-46AE-A3AC-2F265C1172E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +21,9 @@ Global
 		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Debug|x86.Build.0 = Debug|Any CPU
 		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Release|x86.ActiveCfg = Release|Any CPU
 		{737F5825-CAA6-4606-BB45-ED29A64BFBA3}.Release|x86.Build.0 = Release|Any CPU
+		{B64A69F6-AFC0-46AE-A3AC-2F265C1172E0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B64A69F6-AFC0-46AE-A3AC-2F265C1172E0}.Debug|x86.Build.0 = Debug|Any CPU
+		{B64A69F6-AFC0-46AE-A3AC-2F265C1172E0}.Release|x86.ActiveCfg = Release|Any CPU
+		{B64A69F6-AFC0-46AE-A3AC-2F265C1172E0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
