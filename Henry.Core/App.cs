@@ -20,13 +20,9 @@ namespace Henry.Core
 
                 var input = Console.ReadLine();
 
-                Debug.WriteLine(input);
-
 				if (input == "exit") return;
 
-				var result = _witService.Converse(input);
-
-                Console.WriteLine("\nHENRY > {0}", result);
+				_witService.Converse(input);
 			}
 		}
 	}

@@ -33,14 +33,14 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.Core" />
-    <Reference Include="Wit.NET">
-      <HintPath>..\packages\MatheusFroes.Wit.NET.1.0.3\lib\net452\Wit.NET.dll</HintPath>
-    </Reference>
     <Reference Include="Syn.Speech">
       <HintPath>..\packages\Syn.Speech.1.0.3\lib\net45\Syn.Speech.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Wit.NET">
+      <HintPath>..\packages\MatheusFroes.Wit.NET.1.0.3\lib\net452\Wit.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
