@@ -10,18 +10,20 @@ namespace Henry.Core
 
 		public void Init()
 		{
-			bool exited = false;
-
 			_witService = new WitService();
 
-			while (!exited)
+			while (true)
 			{
-				Console.Write("\nYou   > ");
-                _witService.Go();
-                //var input = Console.ReadLine();
-                //if (input == "exit") return;
-                //_witService.Converse(input);
-			}
+                try
+                {
+					Console.Write("\nYou   > ");
+	                _witService.Go();
+			    }
+                catch
+                {
+                    return;
+                }
+            }
 		}
 	}
 }
