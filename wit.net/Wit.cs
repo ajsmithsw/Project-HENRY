@@ -146,7 +146,7 @@ namespace WitAi
 
                 var response = this.RunActions(sessionId, message, context, maxSteps);
                 context = response.Context;
-                response.Messages.ForEach(msg => Console.WriteLine(msg));
+                response.Messages.ForEach(msg => Console.WriteLine("HENRY > {0}", msg));
             }
         }
 
@@ -205,8 +205,8 @@ namespace WitAi
             {
                 throw new WitException("Max steps reached, stopping.");
             }
+            
             ConverseResponse json = Converse(sessionId, message, response.Context, verbose);
-
 
             if (json.Type == null)
             {
@@ -217,7 +217,6 @@ namespace WitAi
             {
                 return response;
             }
-
 
             // backwards-compatibility with API version 20160516
             if (json.Type == "merge")
@@ -236,14 +235,12 @@ namespace WitAi
                 return response;
             }
 
-
             ConverseRequest request = new ConverseRequest();
 
             request.SessionId = sessionId;
             request.Context = response.Context;
             request.Message = message;
             request.Entities = json.Entities;
-
 
             switch (json.Type)
             {
@@ -255,17 +252,14 @@ namespace WitAi
                     converseResponse.Msg = json.Msg;
                     converseResponse.QuickReplies = json.QuickReplies;
 
-                    // SDK is able to handle multiple bot responses at the same time
                     response.Messages.Add(converseResponse.Msg);
 
                     actions["send"](request, converseResponse);
-                    //actions["send"](request);
                     break;
                 case "action":
                     string action = json.Action;
                     ThrowIfActionMissing(action);
                     response.Context = this.actions[action](request, null);
-                    //context = this.actions[action](request);
                     if (response.Context == null)
                     {
                         Console.WriteLine("missing context - did you forget to return it?");
@@ -283,52 +277,6 @@ namespace WitAi
 
             return _RunActions(sessionId, currentRequest, null, response, maxSteps - 1, verbose);
         }
-
-        //public IList<string> GetAllEntities()
-        //{
-        //    var request = new RestRequest("entities", Method.GET);
-
-        //    IRestResponse<List<string>> responseObject = client.Execute<List<string>>(request);
-
-        //    return responseObject.Data;
-        //}
-
-        //public void DeleteEntity(string entityId)
-        //{
-        //    var request = new RestRequest($"entities/{entityId}", Method.DELETE);
-
-        //    IRestResponse responseObject = client.Execute(request);
-        //}
-
-
-        //public void DeleteValueFromEntity(string entityId, string entityValue, string expressionValue)
-        //{
-        //    var request = new RestRequest($"entities/{entityId}/values/{entityValue}/expressions/{expressionValue}", Method.DELETE);
-
-        //    IRestResponse responseObject = client.Execute(request);
-        //}
-
-        //public void DeleteExpressionFromEntity(string entityId, string entityValue)
-        //{
-        //    var request = new RestRequest($"entities/{entityId}/values/{entityValue}", Method.DELETE);
-
-        //    IRestResponse responseObject = client.Execute(request);
-        //}
-
-        //public EntityResponse CreateEntity(Entity entity)
-        //{
-        //    var request = new RestRequest("entities", Method.POST);
-        //    request.RequestFormat = DataFormat.Json;
-
-        //    request.AddBody(JsonConvert.SerializeObject(entity));
-
-        //    IRestResponse responseObject = client.Execute(request);
-        //    EntityResponse response = JsonConvert.DeserializeObject<EntityResponse>(responseObject.Content);
-
-
-        //    return response;
-        //}
-
 
         private void ThrowIfActionMissing(string actionName)
         {

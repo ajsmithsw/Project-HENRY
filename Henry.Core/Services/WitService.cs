@@ -2,8 +2,6 @@
 using WitAi;
 using WitAi.Models;
 using Henry.Core.Utils;
-using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace Henry.Core.Services
 {
@@ -21,9 +19,12 @@ namespace Henry.Core.Services
             _actions["send"] = Send;
             _actions["time"] = TellTheTime;
 
-            _witClient = new Wit("2PDIOI3QNKWLN5HQMSQLZJT4DYUSZ2RT", _actions) { WIT_API_VERSION = "20170307" };
+            _witClient = new Wit("2PDIOI3QNKWLN5HQMSQLZJT4DYUSZ2RT", _actions)
+            {
+                WIT_API_VERSION = "20170307"
+            };
         }
-        
+
         public void Go()
         {
             _witClient.Interactive(_sessionId);
@@ -36,7 +37,8 @@ namespace Henry.Core.Services
 
         private WitContext Send(ConverseRequest request, ConverseResponse response)
         {
-            Console.WriteLine(request.Message);
+            Console.WriteLine("HENRY > {0}", request.Message);
+
             return request.Context;
         }
 
