@@ -1,6 +1,7 @@
-﻿using System;
+﻿﻿using System;
 using System.Diagnostics;
 using Henry.Core.Services;
+using WitAi;
 
 namespace Henry.Core
 {
@@ -10,17 +11,18 @@ namespace Henry.Core
 
 		public void Init()
 		{
-			_witService = new WitService();
+            _witService = new WitService();
 
 			while (true)
 			{
                 try
                 {
-					Console.Write("\nYou   > ");
-	                _witService.Go();
+	                _witService.BeginInteraction();
 			    }
-                catch
+                catch (Exception e)
                 {
+                    Debug.WriteLine("Error: {0}", e.Message);
+
                     return;
                 }
             }

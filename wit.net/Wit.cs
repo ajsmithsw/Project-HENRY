@@ -115,7 +115,7 @@ namespace WitAi
         /// </summary>
         /// <param name="context">Chat context</param>
         /// <param name="maxSteps">Max number of steps. Set to { } if omitted</param>
-        public void Interactive(string sessionId, WitContext context = null, int maxSteps = 5)
+        public void Interactive(WitContext context = null, int maxSteps = 5)
         {
             if (this.actions == null)
             {
@@ -135,8 +135,11 @@ namespace WitAi
             string message;
             while (true)
             {
+                string session;
                 try
                 {
+                    session = SessionId.Generate();
+                    Console.Write("{0} YOU   > ", session);
                     message = Console.ReadLine();
                 }
                 catch (Exception)
@@ -144,9 +147,9 @@ namespace WitAi
                     return;
                 }
 
-                var response = this.RunActions(sessionId, message, context, maxSteps);
+                var response = this.RunActions(session, message, null, maxSteps);
                 context = response.Context;
-                response.Messages.ForEach(msg => Console.WriteLine("HENRY > {0}", msg));
+                response.Messages.ForEach(msg => Console.WriteLine("{0} HENRY > {1}\n", session, msg));
             }
         }
 

@@ -3,6 +3,7 @@ namespace Henry.Core.Services
 {
     public interface IWitService
     {
-        void Converse(string msg);
+        void BeginInteraction();
+       // void Converse(string msg);
     }
 }

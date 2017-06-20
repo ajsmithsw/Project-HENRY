@@ -1,20 +1,16 @@
 ﻿using System;
 using WitAi;
 using WitAi.Models;
-using Henry.Core.Utils;
 
 namespace Henry.Core.Services
 {
     public class WitService : IWitService
     {
-        private Wit _witClient;
-        private string _sessionId;
-        private WitActions _actions;
+        Wit _witClient;
+        WitActions _actions;
 
         public WitService()
         {
-            _sessionId = SessionId.Generate();
-
             _actions = new WitActions();
             _actions["send"] = Send;
             _actions["time"] = TellTheTime;
@@ -25,24 +21,24 @@ namespace Henry.Core.Services
             };
         }
 
-        public void Go()
+        public void BeginInteraction()
         {
-            _witClient.Interactive(_sessionId);
+            _witClient.Interactive();
         }
 
-        public void Converse(string msg)
-        {
-            var res = _witClient.Converse(_sessionId, msg, new WitContext());
-        }
+        //public void Converse(string msg)
+        //{
+        //    var res = _witClient.Converse(_sessionId, msg, new WitContext());
+        //}
 
-        private WitContext Send(ConverseRequest request, ConverseResponse response)
+        WitContext Send(ConverseRequest request, ConverseResponse response)
         {
-            Console.WriteLine("HENRY > {0}", request.Message);
+            Console.WriteLine(request.Message);
 
             return request.Context;
         }
 
-        private WitContext TellTheTime(ConverseRequest request, ConverseResponse response)
+        WitContext TellTheTime(ConverseRequest request, ConverseResponse response)
         {
             request.Context.Add("currentTime", DateTime.Now.ToShortTimeString());
 
