@@ -21,7 +21,12 @@ namespace Henry.Core.Services
             _actions["send"] = Send;
             _actions["time"] = TellTheTime;
 
-            _witClient = new Wit(Constants.WIT_KEY, _actions) { WIT_API_VERSION = "20170307" };
+            _witClient = new Wit("2PDIOI3QNKWLN5HQMSQLZJT4DYUSZ2RT", _actions) { WIT_API_VERSION = "20170307" };
+        }
+        
+        public void Go()
+        {
+            _witClient.Interactive(_sessionId);
         }
 
         public void Converse(string msg)
@@ -37,7 +42,7 @@ namespace Henry.Core.Services
 
         private WitContext TellTheTime(ConverseRequest request, ConverseResponse response)
         {
-            request.Entities.Add("currentTime", DateTime.Now.ToShortTimeString());
+            request.Context.Add("currentTime", DateTime.Now.ToShortTimeString());
 
             return request.Context;
         }

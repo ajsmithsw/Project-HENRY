@@ -17,12 +17,10 @@ namespace Henry.Core
 			while (!exited)
 			{
 				Console.Write("\nYou   > ");
-
-                var input = Console.ReadLine();
-
-				if (input == "exit") return;
-
-				_witService.Converse(input);
+                _witService.Go();
+                //var input = Console.ReadLine();
+                //if (input == "exit") return;
+                //_witService.Converse(input);
 			}
 		}
 	}
